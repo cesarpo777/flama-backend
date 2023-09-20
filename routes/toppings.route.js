@@ -10,12 +10,10 @@ const {
 } = require("../controllers/toppings.controller");
 const { validarCampos } = require("../middlewares/validar-campos");
 
-// obtener toppings
 router.get("/", getToppings);
 
 router.use(validarJWT);
 
-// crear toppings
 router.post(
   "/",
   [
