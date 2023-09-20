@@ -4,10 +4,6 @@ require('dotenv').config();
 const { dbConnection } = require('./database/config')
 const cors = require('cors');
 
-
-
-
-
 // SERVIDOR
 
 const app = express();
@@ -35,13 +31,15 @@ app.use( express.json() );
 
 
 
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth.route'));
 
-app.use('/api/toppings', require('./routes/toppings'))
+app.use('/api/toppings', require('./routes/toppings.route'))
 
-app.use('/api/pizzas', require('./routes/pizzas'))
+app.use('/api/pizzas', require('./routes/pizzas.route'))
 
-app.use('/api/comandas', require('./routes/comandas'))
+app.use('/api/comandas', require('./routes/comandas.route'))
+
+app.use('/api/users', require('./routes/user.route'))
 /* 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
