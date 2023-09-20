@@ -10,19 +10,6 @@ const router = Router();
 const { validarCampos } = require("../middlewares/validar-campos");
 const { validarJWT } = require("../middlewares/validarJwt");
 
-router.post(
-  "/register",
-  [
-    check("name", "El campo nombre es obligatorio").not().isEmpty(),
-    check("correo", "Introduce un correo vàlido").isEmail(),
-    check(
-      "password",
-      "La contraseña debe tener al menos 6 caracteres"
-    ).isLength({ min: 6 }),
-    validarCampos,
-  ],
-  createNewUser
-);
 
 router.post(
   "/login",
